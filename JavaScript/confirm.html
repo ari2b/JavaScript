@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Program Confirm Box</title>
+</head>
+<body>
+    <h2>JavaScript Confirm Box Program</h2>
+    <button onclick="myFunction()">Klik disini</button>
+    <p id="demo"></p>
+    <script language="JavaScript">
+        function myFunction() {
+            var txt;
+            if (confirm("Apakah Anda ingin logout?")) {
+                txt="Anda mengklik OK";
+            } else {
+                txt="Anda mengklik Cancel";
+            }
+            document.getElementById("demo").innerHTML = txt;
+        }
+    </script>
+</body>
+</html>

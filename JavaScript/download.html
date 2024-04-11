@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Dialog dengan ProgressBar jQuery</title>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+  .open-dialog {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #progressbar {
+    margin-top: 20px;
+  }
+  
+  .ui-progressbar-value {
+    background: #007bff;
+  }
+</style>
+</head>
+<body>
+
+<button class="open-dialog">Mulai Download</button>
+
+<div id="dialog" title="Download">
+  <p>Mengunduh konten...</p>
+  <div id="progressbar"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".open-dialog").click(function(){
+    $("#dialog").dialog({
+      modal: true,
+      width: 400,
+      height: 200,
+      resizable: false,
+      draggable: false
+    });
+
+    $("#progressbar").progressbar({
+      value: false
+    });
+
+    var progress = 0;
+    var interval = setInterval(function(){
+      progress += 2;
+      $("#progressbar").progressbar("value", progress);
+      if(progress >= 100){
+        clearInterval(interval);
+        $("#dialog").dialog("close");
+      }
+    }, 500);
+  });
+});
+</script>
+
+</body>
+</html>

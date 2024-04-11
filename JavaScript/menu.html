@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Program Menu jQuery</title>
+<style>
+  .menu {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .menu li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .menu li a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+
+  .menu li a:hover {
+    background-color: #1ffd01;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<ul class="menu">
+  <li><a href="#">Beranda</a></li>
+  <li><a href="#">Produk</a></li>
+  <li><a href="#">Tentang Kami</a></li>
+  <li><a href="#">Kontak</a></li>
+</ul>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+$(document).ready(function(){
+  $('.menu li a').click(function(){
+    $('.menu li a').removeClass("active");
+    $(this).addClass("active");
+  });
+});
+</script>
+
+</body>
+</html>
